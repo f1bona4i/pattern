@@ -1,14 +1,20 @@
-% не работает с бабелем, это для полиглота [не включать]
-% \setdefaultlanguage[spelling=modern]{russian}
-%     \setotherlanguage{english}
-    
+% ШРИФТ Times New Roman 
+% ВНИМАНИЕ
+% Работает только с XeLaTeX или LuaLaTeX, если используете pdfLaTex, то не используйте Times New Roman!
+
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \setsansfont{Times New Roman}
 % \setmonofont{Times New Roman}
-% \setmainfont{Times New Roman} 
-% \setromanfont{Times New Roman} 
-% \newfontfamily\cyrillicfont{Times New Roman}
+
+
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} % поля
 
 \linespread{1.5} % междустрочный интервал
 \setlength{\parindent}{1.25cm} % отступ для абзаца
+\emergencystretch=25pt % Перенос текста при переполнении
+
+
 
 % шрифт для URL-ссылок
 \urlstyle{same} 
@@ -22,6 +28,3 @@
      citecolor = black,       
      urlcolor=blue, 
      }
-
-% Перенос текста при переполнении
-\emergencystretch=25pt

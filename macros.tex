@@ -1,9 +1,13 @@
-% тут пишем что нужно переопределить 
-\newcommand{\DGo}[0]{\Delta G^{\circ}}
-\newcommand{\DGos}[0]{\Delta G'^{\thinspace \circ}}
-\newcommand{\Keq}[0]{K_{eq}}
-\newcommand{\Keqs}[0]{K'_{eq}}
+% Стиль вложенного нумерованного списка 
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+
+% Что нужно переопределить 
 \newcommand{\nadh}[0]{\(\text{НАД}\! \cdot\! \text{H}\ \)}
 \newcommand{\nadp}[0]{\(\text{НАД}^+\ \)}
 \newcommand{\nadph}[0]{\(\text{НАДФ}\! \cdot\! \text{H}\ \)}
-

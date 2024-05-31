@@ -1,44 +1,38 @@
+% Поддержка русского и английского языков, кодировок и шрифтов
 \usepackage[T2A]{fontenc}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
 
-
-
-% нормальные пакеты
+% Математические символы и уравнения
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{gensymb}
+\usepackage{mathtools}
+
+% Графика и рисунки
+\usepackage{graphicx}
 \usepackage{svg}
 \usepackage{pst-all}
 \usepackage{pstricks-add}
-%\usepackage{chem}
-\usepackage{graphicx}
-\usepackage{graphicx}
-\usepackage{biblatex}
-
-\usepackage{amsthm}
-\usepackage{mathtext}
-
-\usepackage{amsmath} % поддержка математических символов
-\usepackage{hyperref} % пакет для интеграции гиперссылок
-\usepackage{chngcntr} % пакет подписей и нумерации рисунков
-\usepackage{indentfirst} % пакет для отступа абзаца
 \usepackage{caption}
+\usepackage{xcolor}
 
-\numberwithin{equation}{section}
+% Гиперссылки и навигация
+\usepackage{hyperref}
 
+% Форматирование текста
+\usepackage{indentfirst}
 \usepackage{setspace}
 
-% bibtex
-\usepackage{biblatex}
-\addbibresource{bibsource.bib}
+% Управление нумерацией
+\usepackage{chngcntr}
+\numberwithin{equation}{section}
 
+% Листинг кода
+\usepackage{listings}
 
-
-\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
-
-
+% Цитирования (снимите комментарий с необходимого)
+% \usepackage[backend=biber, style=gost-numeric, language=auto, autolang=other]{biblatex} % Сортировка по умолчанию (по алфавиту)
+\usepackage[backend=biber, style=gost-numeric, sorting=none, language=auto, autolang=other]{biblatex} % сортировка по мере появления в тексте
+\addbibresource{bibsource.bib} % файл с ссылками на статьи из google scholar 
