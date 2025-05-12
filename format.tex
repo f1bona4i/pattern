@@ -1,30 +1,73 @@
-% ШРИФТ Times New Roman 
-% ВНИМАНИЕ
-% Работает только с XeLaTeX или LuaLaTeX, если используете pdfLaTex, то не используйте Times New Roman!
+% Настройки форматирования документа
+% ГОСТ-совместимые настройки
 
-% \usepackage{fontspec}
-% \setmainfont{Times New Roman}
-% \setsansfont{Times New Roman}
-% \setmonofont{Times New Roman}
+% Параметры страницы
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} % Поля
 
+% Настройки интервалов и отступов
+\linespread{1.5}               % Междустрочный интервал
+\setlength{\parindent}{1.0cm}  % Отступ для абзаца (красная строка) ИСПРАВЛЕНО с 1.25 на 1.0 см
+\emergencystretch=25pt         % Перенос текста при переполнении
 
-\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} % поля
+% Настройки шрифтов
+% Вариант 1: Стандартные шрифты (работает со всеми компиляторами)
+% Раскомментируйте следующий блок для использования Times New Roman
+% (Работает ТОЛЬКО с XeLaTeX или LuaLaTeX!)
+% -----------------------------------------------------------------
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}[
+  BoldFont       = {Times New Roman Bold},
+  ItalicFont     = {Times New Roman Italic},
+  BoldItalicFont = {Times New Roman Bold Italic},
+  Ligatures      = TeX
+]
+\setsansfont{Times New Roman}
+\setmonofont{Courier New}[Scale=0.9]
+% -----------------------------------------------------------------
 
-\linespread{1.5} % междустрочный интервал
-\setlength{\parindent}{1.25cm} % отступ для абзаца
-\emergencystretch=25pt % Перенос текста при переполнении
-
-
-
-% шрифт для URL-ссылок
-\urlstyle{same} 
+% Настройки URL-ссылок и гиперссылок
+\urlstyle{same}   % Шрифт для URL-ссылок такой же как у основного текста
 
 % Цвет гиперссылок и цитирования
-\usepackage{hyperref} 
- \hypersetup{ 
-     colorlinks=true, 
-     linkcolor=black, 
-     filecolor=blue, 
-     citecolor = black,       
-     urlcolor=blue, 
-     }
+\hypersetup{ 
+    colorlinks=true,     % Цветные ссылки вместо рамок
+    linkcolor=black,     % Цвет внутренних ссылок
+    filecolor=blue,      % Цвет ссылок на файлы
+    citecolor=black,     % Цвет ссылок на источники литературы
+    urlcolor=blue,       % Цвет URL-ссылок
+    pdftitle={},         % Заголовок документа в метаданных PDF
+    pdfauthor={},        % Автор документа в метаданных PDF
+    pdfsubject={},       % Тема документа в метаданных PDF
+    pdfcreator={LaTeX},  % Создатель документа в метаданных PDF
+}
+
+% ДОБАВЛЕНО: Настройки заголовков по ГОСТ
+\usepackage{titlesec}
+
+% Форматирование заголовков разделов (section)
+\titleformat{\section}
+  {\normalfont\bfseries\large} % формат: жирный
+  {\thesection} % метка
+  {1em} % расстояние между меткой и заголовком
+  {} % код перед заголовком
+  [] % код после заголовка
+
+% Форматирование подзаголовков (subsection)
+\titleformat{\subsection}
+  {\normalfont\bfseries\itshape\normalsize} % жирный курсив
+  {\thesubsection}
+  {1em}
+  {}
+  []
+
+% Отступы до и после заголовков
+\titlespacing*{\section}{0pt}{12pt}{12pt}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+
+% ДОБАВЛЕНО: Настройки нумерации страниц по ГОСТ
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % очистить все колонтитулы
+\fancyfoot[R]{\thepage} % номер страницы в правом нижнем углу
+\renewcommand{\headrulewidth}{0pt} % убрать линию в верхнем колонтитуле

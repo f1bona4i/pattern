@@ -1,13 +1,54 @@
+% Макросы и переопределения для удобства использования
+
 % Стиль вложенного нумерованного списка 
-\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+% Уровень 1: просто арабские цифры (1, 2, 3...)
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\labelenumi}{\theenumi.}
 
+% Уровень 2: использует значение первого уровня (1.1, 1.2, 2.1...)
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii.}
 
-% Что нужно переопределить 
-\newcommand{\nadh}[0]{\(\text{НАД}\! \cdot\! \text{H}\ \)}
-\newcommand{\nadp}[0]{\(\text{НАД}^+\ \)}
-\newcommand{\nadph}[0]{\(\text{НАДФ}\! \cdot\! \text{H}\ \)}
+% Уровень 3: использует значение второго уровня (1.1.1, 1.1.2, 1.2.1...)
+\renewcommand{\theenumiii}{\theenumii.\arabic{enumiii}}
+\renewcommand{\labelenumiii}{\theenumiii.}
+
+% Уровень 4 (при необходимости)
+\renewcommand{\theenumiv}{\theenumiii.\arabic{enumiv}}
+\renewcommand{\labelenumiv}{\theenumiv.}
+
+% Полезные команды для химии и биохимии
+\newcommand{\nadh}{\(\text{НАД}\! \cdot\! \text{H}\ \)}
+\newcommand{\nadp}{\(\text{НАД}^+\ \)}
+\newcommand{\nadph}{\(\text{НАДФ}\! \cdot\! \text{H}\ \)}
+
+% Пример для рисунков
+\newcommand{\insertimage}[3][1.0]{
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=#1\textwidth]{#2}
+        \caption{#3}
+        \label{fig:#2}
+    \end{figure}
+}
+
+% Пример для таблиц
+\newcommand{\inserttable}[2]{
+    \begin{table}[ht]
+        \centering
+        \caption{#1}
+        \label{tab:#2}
+        \begin{tabular}{#2}
+            % Содержимое таблицы
+        \end{tabular}
+    \end{table}
+}
+
+% Команда для важных заметок
+\newcommand{\note}[1]{
+    \begin{center}
+        \fbox{\begin{minipage}{0.9\textwidth}
+            \textbf{Примечание:} #1
+        \end{minipage}}
+    \end{center}
+}

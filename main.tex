@@ -1,27 +1,26 @@
 \documentclass[14pt, a4paper]{extarticle}
 
-
-\include{packeges}
-
-\include{listing}
-
-\include{format}
+% Подключение стандартных файлов настроек
+\input{packages}
+\input{listing}
+\input{format}
 
 \begin{document}
 
-% title
+% Титульный лист (без номера страницы)
 \input{title}
+\thispagestyle{empty}
 
-% table of content
+% Оглавление (страница 2, начало нумерации)
 \input{toc}
 
-% macros
+% Макросы и команды
 \input{macros}
 
-% content 
-\input{content}
+% === АВТОМАТИЧЕСКОЕ ПОДКЛЮЧЕНИЕ КОНТЕНТА ===
+\importcontentfiles
 
-% bib
+% Библиография
 \input{bibz}
 
 \end{document}

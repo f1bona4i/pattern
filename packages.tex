@@ -39,3 +39,15 @@
 % \usepackage[backend=biber, style=gost-numeric, language=auto, autolang=other]{biblatex} % Сортировка по умолчанию (по алфавиту)
 \usepackage[backend=biber, style=gost-numeric, sorting=none, language=auto, autolang=other]{biblatex} % сортировка по мере появления в тексте
 \addbibresource{bibsource.bib} % файл с ссылками на статьи из google scholar 
+
+% Пакет import для продвинутой работы с подключением файлов
+\usepackage{import}
+
+% Пакет для работы с файловой системой
+\usepackage{xstring}
+
+% Команда для автоматического подключения всех файлов из директории content
+\newcommand{\importcontentfiles}{%
+  % Чтение списка файлов из внешнего файла filelist.tex
+  \input{content/filelist}
+}
