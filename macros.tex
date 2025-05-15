@@ -52,3 +52,40 @@
         \end{minipage}}
     \end{center}
 }
+
+% -------------- PDF -------------- 
+% Полный список параметров для команды \includepdf:
+% - pages: номера страниц для вставки (например, 1-4,7,9-15)
+% - nup: размещение нескольких страниц на одной (например, 2x2)
+% - scale: масштаб (например, 0.8)
+% - angle: угол поворота (например, 90)
+% - offset: смещение (например, 1cm 2cm)
+% - frame: рамка вокруг страницы (true/false)
+% - pagecommand: команды, выполняемые на каждой странице
+% - landscape: альбомная ориентация (true/false)
+
+% Команда для вставки полного PDF-файла
+\newcommand{\insertpdf}[1]{
+    \includepdf[pages=-]{#1}
+}
+
+% Команда для вставки определенных страниц PDF
+\newcommand{\insertpdfpages}[2]{
+    \includepdf[pages=#1]{#2}
+}
+
+% Расширенная команда для вставки PDF с настройками
+\newcommand{\insertpdfex}[3][]{
+    \includepdf[pages=#1,#3]{#2}
+}
+
+% Команда для вставки первой страницы PDF как рисунка
+\newcommand{\insertpdfthumbnail}[3][0.8]{
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=#1\textwidth,page=1]{#2}
+        \caption{#3}
+        \label{fig:pdf-#2}
+    \end{figure}
+}
+
